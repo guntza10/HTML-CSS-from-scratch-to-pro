@@ -115,6 +115,8 @@
 - flex-direction:row; (default) => เป็นการกำหนด main axis (row,column)
 - flex-direction:row; -> main axis จะกลายเป็นแนวนอน row (parent จะกลายเป็น row แล้ว children จะกลายเป็น column)
 - flex-direction:column; -> main axis จะกลายเป็นแนวตั้ง column (parent จะกลายเป็น column แล้ว children จะกลายเป็น row)
+- justify-content depend on main axis
+- align-items depend on cross axis
 
 ## Media Query basics
 
