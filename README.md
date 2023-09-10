@@ -109,3 +109,41 @@
   - flex-end (flex item แต่ละตัวจะสูงตาม content ของมัน)
   - baseline (flex item แต่ละตัวจะสูงตาม content ของมัน) => ตำแหน่งของ first line of text ของทุกๆ flex item จะเท่ากัน
   - stretch (default) (flex item ทุกตัวก็จะสูงตาม flex item ที่สูงที่สุด)
+
+### flex direction
+
+- flex-direction:row; (default) => เป็นการกำหนด main axis (row,column)
+- flex-direction:row; -> main axis จะกลายเป็นแนวนอน row (parent จะกลายเป็น row แล้ว children จะกลายเป็น column)
+- flex-direction:column; -> main axis จะกลายเป็นแนวตั้ง column (parent จะกลายเป็น column แล้ว children จะกลายเป็น row)
+
+## Media Query basics
+
+```
+@media 'media-type' and ('media-condition') {...}
+```
+
+- media type,media condition ต่างก็เป็น optional อาจจะไม่จำเป็นต้องเรียกใช้ทั้ง 2 ตัวก็ได้ เรียกใช้แค่อย่างใดอย่างนึงก็ได้
+  - @media screen and (min-width: 960px) {...}
+  - @media screen and (orientation: portrait) {...}
+  - @media (min-width: 960px) {...} -> from a minimum width of 960px and bigger (ใหญ่กว่า min-width)
+  - @media (max-width: 960px) {...} -> from a maximum width of 960px and smaller (เล็กกว่า max-width)
+  - @media (min-width: 400px) and (max-width: 960px) {...} -> ใหญ่กว่า min-width 400px และ เล็กกว่า max-width 960px (`400px < range < 960px`)
+  - @media (min-width: 400px) and (orientation: landscape) {...}
+- ลำดับการวาง media query มีผล
+  - @media (min-width: 400px) {...},@media (min-width: 650px) {...} => ทำตามลำดับ min-width 400px,650px
+  - @media (min-width: 650px) {...},@media (min-width: 400px) {...} => จะไม่ทำ min-width: 650px เพราะมันโดน min-width: 400px overide (min-width 650px include อยู่ใน min-width 400px)
+
+### media type
+
+- Screen => @media screen {...}
+- Print => @media print {...}
+- Speech => @media speech {...}
+
+### media condition
+
+- let us target specific conditions within that media type
+- widths -> @media (min-width: 600px) {...}
+- orientations -> @media (orientation: landscape) {...}
+  - orientation: landscape => it's wider than it's tall (กว้างมากกว่าสูง)
+  - orientation: portrait => it's taller than it's wider (สูงมากกว่ากว้าง)
+- specific features -> @media (hover) {...}
